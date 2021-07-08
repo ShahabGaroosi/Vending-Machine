@@ -7,7 +7,8 @@ namespace Vending_Machine
     {
         static void Main(string[] args)
         {
-            int userSelection;
+            int userSelection, option;
+            VendingMachine vendingMachine = new VendingMachine();
 
             do
             {
@@ -16,12 +17,22 @@ namespace Vending_Machine
                 switch (userSelection)
                 {
                     case 1:
+                        if(Int32.TryParse(Console.ReadLine(), out option))
+                        {
+                            vendingMachine.Purchase(option);
+                        }
                         break;
                     case 2:
+                        vendingMachine.ShowAll();
                         break;
                     case 3:
+                        if (Int32.TryParse(Console.ReadLine(), out option))
+                        {
+                            vendingMachine.InsertMoney(option);
+                        }
                         break;
                     case 4:
+                        vendingMachine.EndTransaction();
                         break;
                 }
             } while (userSelection != 0);

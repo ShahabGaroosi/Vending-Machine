@@ -8,7 +8,7 @@ namespace Vending_Machine.Model
     {
         public double Volume { get; set; }
         public double Calories { get; set; }
-        public Drink(int id, string name, string price, double volume, double calories) : base(id, name, price)
+        public Drink(string name, string price, double volume, double calories) : base(name, price)
         {
             Volume = volume;
             Calories = calories;

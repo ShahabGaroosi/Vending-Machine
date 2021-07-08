@@ -8,7 +8,7 @@ namespace Vending_Machine.Model
     {
         public string Manufacturer { get; set; }
         public string Functionality { get; set; }
-        public Toy(int id, string name, string price, string manufacturer, string functionality) : base(id, name, price)
+        public Toy(string name, string price, string manufacturer, string functionality) : base(name, price)
         {
             Manufacturer = manufacturer;
             Functionality = functionality;

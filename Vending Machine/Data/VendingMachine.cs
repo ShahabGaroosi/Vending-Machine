@@ -12,17 +12,15 @@ namespace Vending_Machine.Data
         int moneyPool = 0;
         readonly int[] moneyDenomination = new int[] { 1, 5, 10, 20, 50, 100, 500, 1000 };
 
-        public Product Purchase(int id)
+        public Product Purchase(int index)
         {
-            foreach (Product product in products)
+            if (0 < index || index < products.Count)
             {
-                if (product.Id == id)
-                {
-                    product.Use();
-                    return product;
-                }
+                throw new ArgumentException($"Error: Product does not exist with index: {index}.");
             }
-            throw new ArgumentException($"Product does not exist with id: {id}.");
+            Product product = products[index];
+            product.Use();
+            return product;
         }
         public void ShowAll()
         {

@@ -8,7 +8,7 @@ namespace Vending_Machine.Model
     {
         public double Weight { get; set; }
         public double Calories { get; set; }
-        public Food(int id, string name, string price, double weight, double calories) : base(id, name, price)
+        public Food(string name, string price, double weight, double calories) : base(name, price)
         {
             Weight = weight;
             Calories = calories;

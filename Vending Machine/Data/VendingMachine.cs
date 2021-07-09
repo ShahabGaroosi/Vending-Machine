@@ -8,39 +8,47 @@ namespace Vending_Machine.Data
 {
     public class VendingMachine : IVending
     {
-        static List<Product> products = new List<Product>();
+        public static List<Product> products = new List<Product>();
         int moneyPool = 0;
         readonly int[] moneyDenomination = new int[] { 1, 5, 10, 20, 50, 100, 500, 1000 };
 
-        public Product Purchase(int index)
+        public string Purchase(int index)
         {
-            if (0 < index || index < products.Count)
+            if (0 > index || index > products.Count)
             {
-                throw new ArgumentException($"Error: Product does not exist with index: {index}.");
+                return $"Error: Product does not exist with index: {index}.";
             }
-            Product product = products[index];
-            product.Use();
-            return product;
+            if (moneyPool < products[index].Price)
+            {
+                return $"Error: Not enough money. Insert more money.";
+            }
+            moneyPool -= products[index].Price;
+            return products[index].Use();
         }
-        public void ShowAll()
+        public string ShowAll()
         {
+            string output = $"\n\nMoney pool: {moneyPool}\n\n";
             foreach (Product product in products)
             {
-                Console.WriteLine(product.Examine());
+                output += product.Examine();
             }
+            return output;
         }
         public void InsertMoney(int money)
         {
-            if (!moneyDenomination.Contains(money))
+            if (moneyDenomination.Contains(money))
             {
-                throw new ArgumentException($"Error: Invalid money insert. Valid money insert only {string.Join(",", moneyDenomination)}.");
+                moneyPool += money;
             }
-            moneyPool += money;
+            else
+            {
+                Console.WriteLine($"Error: Invalid money insert. Valid money insert only {string.Join(", ", moneyDenomination)}.");
+            }
         }
         public Dictionary<int, int> EndTransaction()
         {
             Dictionary<int, int> change = new Dictionary<int, int>();
-            for (int i = moneyDenomination.Length-1; i > 0; i--)
+            for (int i = moneyDenomination.Length-1; i >= 0; i--)
             {
                 change.Add(moneyDenomination[i], moneyPool / moneyDenomination[i]);
                 moneyPool %= moneyDenomination[i];

@@ -6,8 +6,8 @@ namespace Vending_Machine.Model
 {
     interface IVending
     {
-        Product Purchase(int index);
-        void ShowAll();
+        string Purchase(int index);
+        string ShowAll();
         void InsertMoney(int money);
         Dictionary<int, int> EndTransaction();
     }

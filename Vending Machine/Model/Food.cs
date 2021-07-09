@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Vending_Machine.Model
 {
-    class Food : Product
+    public class Food : Product
     {
         public double Weight { get; set; }
         public double Calories { get; set; }
-        public Food(string name, string price, double weight, double calories) : base(name, price)
+        public Food(string name, int price, double weight, double calories) : base(name, price)
         {
             Weight = weight;
             Calories = calories;
@@ -16,7 +16,7 @@ namespace Vending_Machine.Model
 
         public override string Info()
         {
-            return $"Weight: {Weight}g\nCalories: {Calories}cal\n";
+            return $"Weight: {Weight} g\nCalories: {Calories} cal\n";
         }
         public override string Type()
         {

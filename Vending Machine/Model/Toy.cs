@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Vending_Machine.Model
 {
-    class Toy : Product
+    public class Toy : Product
     {
         public string Manufacturer { get; set; }
         public string Functionality { get; set; }
-        public Toy(string name, string price, string manufacturer, string functionality) : base(name, price)
+        public Toy(string name, int price, string manufacturer, string functionality) : base(name, price)
         {
             Manufacturer = manufacturer;
             Functionality = functionality;

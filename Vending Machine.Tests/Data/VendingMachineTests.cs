@@ -22,10 +22,10 @@ namespace Vending_Machine.Tests.Data
             vendingMachine.products.Add(testDrink);
             vendingMachine.products.Add(testFood);
             vendingMachine.products.Add(testToy);
-            string expected = $"\n\nMoney pool: 0\n";
-            expected += testDrink.Examine() + testFood.Examine() + testToy.Examine();
 
             //Assert
+            string expected = $"\n\nMoney pool: 0\n";
+            expected += testDrink.Examine() + testFood.Examine() + testToy.Examine();
             Assert.Equal(expected, vendingMachine.ShowAll());
         }
         [Fact]

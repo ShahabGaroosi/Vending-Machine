@@ -38,6 +38,35 @@ namespace Vending_Machine.Tests.Model
             //Assert
             Assert.Equal(calories, testDrink.Calories);
         }
+        [Fact]
+        public void ExamineTest()
+        {
+            //Arrange
+            string name = "TestDrink";
+            int price = 23;
+            double volume = 33;
+            double calories = 100;
 
+            //Act
+            Drink testDrink = new Drink(name, price, volume, calories);
+
+            //Assert
+            Assert.Equal("\n--- Drink type ---\nName: TestDrink\nPrice: 23 kr\nVolume: 33 cl\nCalories: 100 cal\n", testDrink.Examine());
+        }
+        [Fact]
+        public void UseTest()
+        {
+            //Arrange
+            string name = "Test";
+            int price = 23;
+            double volume = 33;
+            double calories = 100;
+
+            //Act
+            Drink testDrink = new Drink(name, price, volume, calories);
+
+            //Assert
+            Assert.Equal("Drink it!", testDrink.Use());
+        }
     }
 }

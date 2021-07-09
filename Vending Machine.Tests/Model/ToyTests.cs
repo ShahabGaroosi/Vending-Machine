@@ -38,5 +38,35 @@ namespace Vending_Machine.Tests.Model
             //Assert
             Assert.Equal(functionality, testToy.Functionality);
         }
+        [Fact]
+        public void ExamineTest()
+        {
+            //Arrange
+            string name = "TestToy";
+            int price = 23;
+            string manufacturer = "Company";
+            string functionality = "Test it!";
+
+            //Act
+            Toy testToy = new Toy(name, price, manufacturer, functionality);
+
+            //Assert
+            Assert.Equal("\n--- Toy type ---\nName: TestToy\nPrice: 23 kr\nManufacturer: Company\nFunctionality: Test it!\n", testToy.Examine());
+        }
+        [Fact]
+        public void UseTest()
+        {
+            //Arrange
+            string name = "TestToy";
+            int price = 23;
+            string manufacturer = "Company";
+            string functionality = "Test it!";
+
+            //Act
+            Toy testToy = new Toy(name, price, manufacturer, functionality);
+
+            //Assert
+            Assert.Equal("Test it!", testToy.Use());
+        }
     }
 }

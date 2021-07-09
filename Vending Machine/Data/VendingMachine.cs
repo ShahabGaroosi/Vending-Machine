@@ -27,7 +27,7 @@ namespace Vending_Machine.Data
         }
         public string ShowAll()
         {
-            string output = $"\n\nMoney pool: {moneyPool}\n\n";
+            string output = $"\n\nMoney pool: {moneyPool}\n";
             foreach (Product product in products)
             {
                 output += product.Examine();

@@ -8,8 +8,8 @@ namespace Vending_Machine.Data
 {
     public class VendingMachine : IVending
     {
-        public static List<Product> products = new List<Product>();
-        int moneyPool = 0;
+        public List<Product> products = new List<Product>();
+        public int moneyPool = 0;
         readonly int[] moneyDenomination = new int[] { 1, 5, 10, 20, 50, 100, 500, 1000 };
 
         public string Purchase(int index)

@@ -10,12 +10,9 @@ namespace Vending_Machine
         {
             int userSelection, option;
             VendingMachine vendingMachine = new VendingMachine();
-            Drink drink = new Drink("Cola", 15, 33, 100);
-            Food food = new Food("Pizza", 80, 200, 1500);
-            Toy toy = new Toy("Ball", 20, "Volvo", "Throw it!");
-            VendingMachine.products.Add(new Drink("Cola", 15, 33, 100));
-            VendingMachine.products.Add(new Food("Pizza", 80, 200, 1500));
-            VendingMachine.products.Add(new Toy("Ball", 20, "McDonalds", "Throw it!"));
+            vendingMachine.products.Add(new Drink("Cola", 15, 33, 100));
+            vendingMachine.products.Add(new Food("Hamburger", 80, 200, 1500));
+            vendingMachine.products.Add(new Toy("Ball", 20, "Company", "Throw it!"));
 
             do
             {
@@ -39,6 +36,7 @@ namespace Vending_Machine
                         }
                         break;
                     case 4:
+                        Console.WriteLine("Here is your change [denomination, #]:");
                         foreach (var change in vendingMachine.EndTransaction())
                         {
                             Console.WriteLine(change);

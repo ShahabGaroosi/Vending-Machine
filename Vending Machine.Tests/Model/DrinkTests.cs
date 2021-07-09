@@ -42,13 +42,7 @@ namespace Vending_Machine.Tests.Model
         public void ExamineTest()
         {
             //Arrange
-            string name = "TestDrink";
-            int price = 23;
-            double volume = 33;
-            double calories = 100;
-
-            //Act
-            Drink testDrink = new Drink(name, price, volume, calories);
+            Drink testDrink = new Drink("TestDrink", 23, 33, 100);
 
             //Assert
             Assert.Equal("\n--- Drink type ---\nName: TestDrink\nPrice: 23 kr\nVolume: 33 cl\nCalories: 100 cal\n", testDrink.Examine());
@@ -57,13 +51,7 @@ namespace Vending_Machine.Tests.Model
         public void UseTest()
         {
             //Arrange
-            string name = "Test";
-            int price = 23;
-            double volume = 33;
-            double calories = 100;
-
-            //Act
-            Drink testDrink = new Drink(name, price, volume, calories);
+            Drink testDrink = new Drink("TestDrink", 23, 33, 100);
 
             //Assert
             Assert.Equal("Drink it!", testDrink.Use());

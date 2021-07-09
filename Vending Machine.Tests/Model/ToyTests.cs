@@ -42,13 +42,7 @@ namespace Vending_Machine.Tests.Model
         public void ExamineTest()
         {
             //Arrange
-            string name = "TestToy";
-            int price = 23;
-            string manufacturer = "Company";
-            string functionality = "Test it!";
-
-            //Act
-            Toy testToy = new Toy(name, price, manufacturer, functionality);
+            Toy testToy = new Toy("TestToy", 23, "Company", "Test it!");
 
             //Assert
             Assert.Equal("\n--- Toy type ---\nName: TestToy\nPrice: 23 kr\nManufacturer: Company\nFunctionality: Test it!\n", testToy.Examine());
@@ -57,13 +51,7 @@ namespace Vending_Machine.Tests.Model
         public void UseTest()
         {
             //Arrange
-            string name = "TestToy";
-            int price = 23;
-            string manufacturer = "Company";
-            string functionality = "Test it!";
-
-            //Act
-            Toy testToy = new Toy(name, price, manufacturer, functionality);
+            Toy testToy = new Toy("TestToy", 23, "Company", "Test it!");
 
             //Assert
             Assert.Equal("Test it!", testToy.Use());

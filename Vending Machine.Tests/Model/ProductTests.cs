@@ -12,30 +12,18 @@ namespace Vending_Machine.Tests.Model
         public void ExamineTest()
         {
             //Arrange
-            string name = "Test";
-            int price = 23;
-            double volume = 33;
-            double calories = 100;
-
-            //Act
-            Product testProduct = new Drink(name, price, volume, calories);
+            Product testProduct = new Drink("Test", 23, 33, 100);
 
             //Act
 
             //Assert
-            Assert.Equal($"\n--- {testProduct.Type()} type ---\nName: {testProduct.Name}\nPrice: {testProduct.Price} kr\n{testProduct.Info()}", testProduct.Examine());
+            Assert.Equal("\n--- Drink type ---\nName: Test\nPrice: 23 kr\nVolume: 33 cl\nCalories: 100 cal\n", testProduct.Examine());
         }
         [Fact]
         public void UseTest()
         {
             //Arrange
-            string name = "Test";
-            int price = 23;
-            double volume = 33;
-            double calories = 100;
-
-            //Act
-            Product testProduct = new Drink(name, price, volume, calories);
+            Product testProduct = new Drink("Test", 23, 33, 100);
 
             //Assert
             Assert.Equal("Drink it!", testProduct.Use());

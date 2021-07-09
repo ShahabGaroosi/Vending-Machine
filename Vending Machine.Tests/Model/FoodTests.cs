@@ -42,13 +42,7 @@ namespace Vending_Machine.Tests.Model
         public void ExamineTest()
         {
             //Arrange
-            string name = "TestFood";
-            int price = 23;
-            double weight = 33;
-            double calories = 100;
-
-            //Act
-            Food testFood = new Food(name, price, weight, calories);
+            Food testFood = new Food("TestFood", 23, 33, 100);
 
             //Assert
             Assert.Equal("\n--- Food type ---\nName: TestFood\nPrice: 23 kr\nWeight: 33 g\nCalories: 100 cal\n", testFood.Examine());
@@ -57,13 +51,7 @@ namespace Vending_Machine.Tests.Model
         public void UseTest()
         {
             //Arrange
-            string name = "Test";
-            int price = 23;
-            double weight = 33;
-            double calories = 100;
-
-            //Act
-            Food testFood = new Food(name, price, weight, calories);
+            Food testFood = new Food("Test", 23, 33, 100);
 
             //Assert
             Assert.Equal("Eat it!", testFood.Use());

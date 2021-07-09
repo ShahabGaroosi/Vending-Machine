@@ -17,6 +17,7 @@ namespace Vending_Machine.Tests.Data
             Food testFood = new Food("Hamburger", 80, 200, 1500);
             Toy testToy = new Toy("Ball", 20, "Company", "Throw it!");
             VendingMachine vendingMachine = new VendingMachine();
+            vendingMachine.moneyPool = 130;
             
             //Act
             vendingMachine.products.Add(testDrink);
@@ -24,7 +25,7 @@ namespace Vending_Machine.Tests.Data
             vendingMachine.products.Add(testToy);
 
             //Assert
-            string expected = $"\n\nMoney pool: 0\n";
+            string expected = $"\n\nMoney pool: 130 kr\n";
             expected += testDrink.Examine() + testFood.Examine() + testToy.Examine();
             Assert.Equal(expected, vendingMachine.ShowAll());
         }
@@ -52,8 +53,6 @@ namespace Vending_Machine.Tests.Data
             vendingMachine.products.Add(new Food("Hamburger", 80, 200, 1500));
             vendingMachine.products.Add(new Toy("Ball", 15, "Company", "Throw it!"));
             vendingMachine.moneyPool = 130;
-
-            //Act
 
             //Assert
             Assert.Equal("Eat it!", vendingMachine.Purchase(1));
